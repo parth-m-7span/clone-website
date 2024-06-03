@@ -1,0 +1,67 @@
+{
+  "name": "7span-website",
+  "version": "4.3.2",
+  "private": true,
+  "prettier": {
+    "@7span/prettier-config": true,
+    "arrowParens": "avoid"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "prepare": "husky install",
+    "prepare:husky": "husky install; husky add .husky/pre-commit 'npx lint-staged';",
+    "format": "prettier --write .",
+    "analyze": "npx nuxi analyze"
+  },
+  "lint-staged": {
+    "*.{js,md,html,css,vue,json}": "prettier --write",
+    "*.{js,vue}": "eslint --ext .js,.vue --fix"
+  },
+  "devDependencies": {
+    "@7span/nuxt-directus-blog": "^0.1.3",
+    "@7span/prettier-config": "^1.0.4",
+    "@7span/vue-list": "^1.1.3",
+    "@nuxt/devtools": "^0.6.7",
+    "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/image": "^1.0.0-rc.2",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxtjs/pwa": "^3.3.5",
+    "@types/node": "^18",
+    "@unhead/schema-org": "^0.6.0",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "autoprefixer": "^10.4.14",
+    "defu": "^6.1.2",
+    "eslint": "^8.43.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "nuxt": "^3.4.3",
+    "nuxt-directus": "^5.4.4",
+    "nuxt-gtag": "^0.5.7",
+    "nuxt-icon": "^0.4.2",
+    "nuxt-schema-org": "^2.2.0",
+    "nuxt-security": "^0.14.4",
+    "nuxt-simple-sitemap": "^3.1.5",
+    "postcss": "^8.4.23",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "tailwindcss": "^3.3.2"
+  },
+  "note": {
+    "defu": "This package is installed to solve vite error 500. Issue link https://github.com/nuxt/nuxt/issues/14768"
+  },
+  "dependencies": {
+    "@nuxtjs/robots": "^3.0.0",
+    "@7span/nuxt-editorjs-renderer": "^0.1.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "@vueuse/components": "^10.4.1",
+    "@vueuse/core": "^10.4.1",
+    "nuxt-vue-select": "^0.1.4"
+  }
+}

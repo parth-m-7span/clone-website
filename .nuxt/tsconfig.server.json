@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "paths": {
+      "#imports": [
+        "/Users/parth7span/projects/clone-website/.nuxt/types/nitro-imports"
+      ],
+      "#paths": [
+        "/Users/parth7span/projects/clone-website/node_modules/nuxt/dist/core/runtime/nitro/paths"
+      ],
+      "~": [
+        "/Users/parth7span/projects/clone-website"
+      ],
+      "~/*": [
+        "/Users/parth7span/projects/clone-website/*"
+      ],
+      "@": [
+        "/Users/parth7span/projects/clone-website"
+      ],
+      "@/*": [
+        "/Users/parth7span/projects/clone-website/*"
+      ],
+      "~~": [
+        "/Users/parth7span/projects/clone-website"
+      ],
+      "~~/*": [
+        "/Users/parth7span/projects/clone-website/*"
+      ],
+      "@@": [
+        "/Users/parth7span/projects/clone-website"
+      ],
+      "@@/*": [
+        "/Users/parth7span/projects/clone-website/*"
+      ],
+      "assets": [
+        "/Users/parth7span/projects/clone-website/assets"
+      ],
+      "assets/*": [
+        "/Users/parth7span/projects/clone-website/assets/*"
+      ],
+      "public": [
+        "/Users/parth7span/projects/clone-website/public"
+      ],
+      "public/*": [
+        "/Users/parth7span/projects/clone-website/public/*"
+      ],
+      "#image": [
+        "/Users/parth7span/projects/clone-website/node_modules/@nuxt/image/dist/runtime"
+      ],
+      "#image/*": [
+        "/Users/parth7span/projects/clone-website/node_modules/@nuxt/image/dist/runtime/*"
+      ],
+      "#nuxt-schema-org/config": [
+        "/Users/parth7span/projects/clone-website/.nuxt/nuxt-schema-org-config"
+      ],
+      "#robots": [
+        "/Users/parth7span/projects/clone-website/robots.config"
+      ]
+    }
+  },
+  "include": [
+    "/Users/parth7span/projects/clone-website/.nuxt/types/nitro-nuxt.d.ts",
+    "./types/nitro.d.ts",
+    "../**/*",
+    "../server/**/*"
+  ]
+}

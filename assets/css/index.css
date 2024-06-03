@@ -1,0 +1,84 @@
+/**
+Tailwind Extend
+**/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .border,
+  .border-2,
+  .border-4,
+  .border-r,
+  .border-l,
+  .border-t,
+  .border-b,
+  .border-x,
+  .border-y {
+    @apply border-black;
+  }
+}
+
+@layer utilities {
+  .font-display-semibold {
+    font-variation-settings:
+      "slnt" 0,
+      "wght" 600;
+  }
+  .font-display-medium {
+    font-variation-settings:
+      "slnt" 0,
+      "wght" 500;
+  }
+
+  .scrollbar-left {
+    direction: rtl;
+  }
+}
+
+/**
+ Custom CSS
+**/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply font-body text-base;
+  /* Font display Swap improves FCP Performance  */
+  font-display: swap;
+}
+
+.clockwise {
+  animation: antirotation 12s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(359deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.anticlockwise {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes antirotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
