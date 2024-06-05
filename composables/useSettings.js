@@ -1,4 +1,5 @@
-export const useSettings = async () => {
+// export const useSettings = async () => {
+export default async function useSettings() {
   /**
    * Get Settings
    */
@@ -50,19 +51,19 @@ export const useSettings = async () => {
   /**
    * Set Schema
    */
-  useSchemaOrg([
-    defineOrganization({
-      name: company_legal_name,
-      logo,
-      sameAs: ["https://twitter.com/7SpanHQ"],
-      aggregateRating: {
-        ratingValue: ratings,
-        reviewCount: reviews_count,
-      },
-    }),
-  ]);
+  // useSchemaOrg([
+  //   defineOrganization({
+  //     name: company_legal_name,
+  //     logo,
+  //     sameAs: ["https://twitter.com/7SpanHQ"],
+  //     aggregateRating: {
+  //       ratingValue: ratings,
+  //       reviewCount: reviews_count,
+  //     },
+  //   }),
+  // ]);
 
   return {
     colorVariables,
   };
-};
+}
