@@ -219,7 +219,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/**": { swr: true },
+    "/**": { isr: true },
   },
   experimental: {
     asyncContext: true,
