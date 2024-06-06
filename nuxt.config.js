@@ -211,13 +211,13 @@ export default defineNuxtConfig({
    * On-demand revalidation allows you to purge the cache for an ISR route whenever you want
    */
   // 🔴 WARNING DO NOT ENABLE THIS. VERCEL BILLING GOES MAD WITH THIS.
-  // nitro: {
-  //   vercel: {
-  //     config: {
-  //       bypassToken: "cbc0eb4746d86bff2b588eaff57ad036",
-  //     },
-  //   },
-  // },
+  nitro: {
+    vercel: {
+      config: {
+        bypassToken: "cbc0eb4746d86bff2b588eaff57ad036",
+      },
+    },
+  },
   routeRules: {
     "/**": { swr: true },
   },
