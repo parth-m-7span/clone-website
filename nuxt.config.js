@@ -83,7 +83,10 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    mode: process.env.VERCEL_ENV || "ABC",
+    public: {
+      apiBaseURL: "/abc",
+      mode: process.env.VERCEL_ENV || "ABC",
+    },
   },
 
   /**
