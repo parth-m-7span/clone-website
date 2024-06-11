@@ -82,6 +82,10 @@ export default defineNuxtConfig({
     },
   },
 
+  runtimeConfig: {
+    mode: process.env.VERCEL_ENV || "ABC",
+  },
+
   /**
    * https://nuxtseo.com/sitemap/getting-started/prerender-requirements
    */

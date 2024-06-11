@@ -3,7 +3,8 @@ import env from "../env.js";
 
 export default defineNuxtPlugin(() => {
   const sdsd = useAppConfig();
-  console.log("env ==> ", sdsd);
+  const qw = useRuntimeConfig();
+  console.log("env ==> ", sdsd, qw);
   // console.log(
   //   "env.enablePosthog ==>",
   //   env.enablePosthog,
