@@ -198,7 +198,7 @@ export default defineNuxtConfig({
     },
   },
 
-  plugins: ["./plugins/global"],
+  plugins: ["./plugins/global", "./plugins/posthog.client.js"],
 
   directusBlog: {
     baseUrl: config.directusUrl,
