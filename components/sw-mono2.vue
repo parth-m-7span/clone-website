@@ -1,6 +1,6 @@
 <template>
   <div
-    class="font-mono font-medium uppercase text-xl lg:text-3xl"
+    class="font-mono font-medium uppercase text-xl xl:text-3xl"
     v-html="content"
   />
 </template>

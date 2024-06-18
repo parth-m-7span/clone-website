@@ -12,7 +12,7 @@
             v-for="(card, index) in _cards"
             :key="index"
             :link="card.link"
-            class="border flex flex-col justify-between snap-start bg-white w-4/5 flex-shrink-0 lg:w-full lg:border-none"
+            class="border flex flex-col justify-between snap-start bg-white w-3/5 flex-shrink-0 lg:w-full lg:border-none"
           >
             <SwImage
               height="100"

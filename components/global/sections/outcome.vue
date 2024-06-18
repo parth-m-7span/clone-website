@@ -14,7 +14,7 @@
             class="w-full h-full border"
             width="500"
             height="auto"
-            sizes="sm:300px md:432px lg:700px xl:850"
+            sizes="sm:300px md:432px lg:700px xl:850px"
           />
           <div
             v-if="outcome.media.type.startsWith('video')"

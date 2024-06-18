@@ -1,24 +1,43 @@
 <template>
-  <div class="border px-5 py-4 h-14 bg-white">
+  <div class="border px-5 h-14 bg-white">
     <div class="flex dropdown-container group transition-all">
-      <select id="allwork" name="allwork" class="flex w-full">
-        <option value="" disabled selected hidden>{{ category }}</option>
-        <option>{{ option1 }}</option>
-        <option>{{ option2 }}</option>
-        <option>{{ option3 }}</option>
-        <option>{{ option4 }}</option>
+      <select
+        id="allwork"
+        name="allwork"
+        class="flex w-full py-3 mt-1 outline-none"
+        :required="required"
+        @change="$emit('update:modelValue', $event.target.value)"
+      >
+        <option value="" disabled selected hidden>
+          {{ category }}
+        </option>
+        <option v-for="option in options" :key="option" :value="option.value">
+          {{ option.label }}
+        </option>
       </select>
     </div>
   </div>
 </template>
 
 <script setup>
+defineEmits(["update:modelValue"]);
 defineProps({
+  modelValue: {
+    type: [String, Number],
+    default: "",
+  },
+  required: {
+    type: Boolean,
+    default: false,
+  },
   category: {
     type: String,
     default: "",
   },
-
+  options: {
+    type: Array,
+    default: () => [],
+  },
   option1: {
     type: String,
     default: "",

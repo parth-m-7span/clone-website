@@ -9,6 +9,15 @@ import { toRaw } from "vue";
 import env from "../env.js";
 
 const route = useRoute();
+
+if (process.client && route.query && Object.keys(route.query).length !== 0) {
+  /**
+   * Store the tracking tag in session storage
+   * This is used to track the user journey in the website.
+   */
+  sessionStorage.setItem("tracking-data", JSON.stringify(route.query));
+}
+
 const { siteUrl } = useAppConfig();
 /**
  * Create a set of slugs to handle dynamic routes.
@@ -76,6 +85,7 @@ const { data, error } = await useAsyncData("hydrate", () => {
 }).catch(err => {
   console.error(err);
 });
+console.log("===>dsds d sd s", data.value);
 
 /**
  * First, check for errors and throw if page not found.
@@ -85,7 +95,7 @@ if (error.value) {
     statusCode: error.value.statusCode,
     statusMessage: error.value.message,
   });
-} else if (data.value.length === 0) {
+} else if (data.value?.length === 0) {
   /**
    * Here "Data" variable refers to the number of pages that are found.
    * We're sending slug request to pages collection.
@@ -157,7 +167,7 @@ const _og_image = og_image && img(og_image);
 const _keywords = keywords && keywords.join(",");
 
 useHead({
-  title: title + " | 7Span",
+  title,
   meta: [
     { key: "locale", name: "locale", content: "en_US" },
     { key: "siteName", name: "site_name", content: "7Span.com" },

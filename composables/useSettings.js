@@ -1,9 +1,7 @@
-// export const useSettings = async () => {
-export default async function useSettings() {
+export const useSettings = async () => {
   /**
    * Get Settings
    */
-
   const { getItems } = useDirectusItems();
   const { getThumbnail } = useDirectusFiles();
 
@@ -66,4 +64,4 @@ export default async function useSettings() {
   return {
     colorVariables,
   };
-}
+};

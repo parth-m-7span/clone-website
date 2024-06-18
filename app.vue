@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script async setup>
+<script setup>
 const { colorVariables } = await useSettings();
 if (process.client) document.body.style = colorVariables;
 </script>

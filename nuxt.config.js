@@ -84,8 +84,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBaseURL: "/abc",
-      mode: process.env.VERCEL_ENV || "ABC",
+      enablePosthog: process.env.VERCEL_ENV === "production",
     },
   },
 
@@ -205,7 +204,7 @@ export default defineNuxtConfig({
     },
   },
 
-  plugins: ["./plugins/global", "./plugins/posthog.client.js"],
+  plugins: ["./plugins/global"],
 
   directusBlog: {
     baseUrl: config.directusUrl,
@@ -228,6 +227,12 @@ export default defineNuxtConfig({
   routeRules: {
     "/**": { isr: true },
   },
+
+  /**
+   * Experimental Features
+   * Enable native async context to be accessible for nested composables
+   * https://nuxt.com/docs/guide/going-further/experimental-features#asynccontext
+   */
   experimental: {
     asyncContext: true,
   },

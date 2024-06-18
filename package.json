@@ -1,6 +1,6 @@
 {
   "name": "7span-website",
-  "version": "4.3.2",
+  "version": "4.4.7",
   "private": true,
   "prettier": {
     "@7span/prettier-config": true,
@@ -57,11 +57,12 @@
     "defu": "This package is installed to solve vite error 500. Issue link https://github.com/nuxt/nuxt/issues/14768"
   },
   "dependencies": {
-    "@nuxtjs/robots": "^3.0.0",
     "@7span/nuxt-editorjs-renderer": "^0.1.0",
+    "@nuxtjs/robots": "^3.0.0",
     "@tailwindcss/typography": "^0.5.9",
     "@vueuse/components": "^10.4.1",
     "@vueuse/core": "^10.4.1",
-    "nuxt-vue-select": "^0.1.4"
+    "nuxt-vue-select": "^0.1.4",
+    "posthog-js": "^1.138.1"
   }
 }
