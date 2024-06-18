@@ -226,6 +226,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // "/**": { isr: true },
+    "/:slug*": { isr: true },
   },
 
   /**
