@@ -90,7 +90,7 @@ const { data, error } = await useAsyncData("hydrate", () => {
  * First, check for errors and throw if page not found.
  */
 if (error.value) {
-  throw createError({
+  throw showError({
     statusCode: error.value.statusCode,
     statusMessage: error.value.message,
     fatal: false,
@@ -103,7 +103,7 @@ if (error.value) {
    * we consider it as the page is not found.
    * Hence we create a manual 404 page error.
    */
-  throw createError({
+  throw showError({
     statusCode: 404,
     statusMessage: "Page Not Found",
     fatal: false,
@@ -133,7 +133,7 @@ for (let i = 0; i < dynamicSlugs.length; i++) {
  * If Page is in draft mode and environment is not production , prepare data.
  */
 if (!env.renderDraftPage && page.status === "draft") {
-  throw createError({
+  throw showError({
     statusCode: 404,
     statusMessage: "Page Not Found",
     fatal: false,
