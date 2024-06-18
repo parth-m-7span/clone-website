@@ -225,7 +225,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    "/**": { isr: true, headers: { "Content-Type": "application/html" } },
+    "/**": { isr: true, headers: { "Content-Type": "application/json" } },
     "/abc": { isr: false },
   },
 
