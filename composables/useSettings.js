@@ -49,7 +49,7 @@ export const useSettings = async () => {
   /**
    * Set Schema
    */
-  useSchemaOrg([
+  await useSchemaOrg([
     defineOrganization({
       name: company_legal_name,
       logo,
