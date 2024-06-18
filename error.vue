@@ -11,8 +11,8 @@ const props = defineProps({
     default: () => {},
   },
 });
-await useSettings();
+// useSettings();
 console.error("error", props.error);
 const { sections, id } = await usePage("/error");
-// await useSettings();
+await useSettings();
 </script>
