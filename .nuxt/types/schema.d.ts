@@ -80,6 +80,8 @@ declare module 'nuxt/schema' {
    },
   }
   interface PublicRuntimeConfig {
+   enablePosthog: boolean,
+
    directus: {
       url: string,
 

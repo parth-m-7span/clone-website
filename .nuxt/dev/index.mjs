@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
 import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, getRequestHost, getRequestProtocol, getQuery as getQuery$1, setHeader, getHeader, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, readBody, getResponseStatusText } from 'file:///Users/parth7span/projects/clone-website/node_modules/h3/dist/index.mjs';
+import { AsyncLocalStorage } from 'node:async_hooks';
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/parth7span/projects/clone-website/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file:///Users/parth7span/projects/clone-website/node_modules/devalue/index.js';
 import destr from 'file:///Users/parth7span/projects/clone-website/node_modules/destr/dist/index.mjs';
@@ -20,9 +21,8 @@ import defu, { defuFn, defu as defu$1 } from 'file:///Users/parth7span/projects/
 import { createStorage, prefixStorage } from 'file:///Users/parth7span/projects/clone-website/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/parth7span/projects/clone-website/node_modules/unstorage/drivers/fs.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/parth7span/projects/clone-website/node_modules/radix3/dist/index.mjs';
-import { AsyncLocalStorage } from 'node:async_hooks';
-import { consola } from 'file:///Users/parth7span/projects/clone-website/node_modules/consola/dist/index.mjs';
 import { getContext } from 'file:///Users/parth7span/projects/clone-website/node_modules/unctx/dist/index.mjs';
+import { consola } from 'file:///Users/parth7span/projects/clone-website/node_modules/consola/dist/index.mjs';
 import { version, unref } from 'file:///Users/parth7span/projects/clone-website/node_modules/vue/index.mjs';
 import { createServerHead as createServerHead$1 } from 'file:///Users/parth7span/projects/clone-website/node_modules/unhead/dist/index.mjs';
 import { defineHeadPlugin } from 'file:///Users/parth7span/projects/clone-website/node_modules/@unhead/shared/dist/index.mjs';
@@ -73,11 +73,15 @@ var directusUrl$1 = "https://products.7span.in";
 var bunnyCdnUrl = "https://7span-product.b-cdn.net";
 var siteUrl = "https://7span.com";
 var blogProductKey = "57ad0552-a537-47d2-a9a8-6898bf98024e";
+var posthogPublicKey = "phc_hGj5DQy7Z5JiqWINaGEX8G9I3OUOHCvjfl4jggI6mQG";
+var posthogHost = "https://eu.i.posthog.com";
 const config$2 = {
 	directusUrl: directusUrl$1,
 	bunnyCdnUrl: bunnyCdnUrl,
 	siteUrl: siteUrl,
-	blogProductKey: blogProductKey
+	blogProductKey: blogProductKey,
+	posthogPublicKey: posthogPublicKey,
+	posthogHost: posthogHost
 };
 
 const appConfig0 = defineAppConfig({
@@ -124,6 +128,7 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
+    "enablePosthog": false,
     "directus": {
       "url": "https://products.7span.in/",
       "autoFetch": true,
@@ -716,6 +721,11 @@ function getRouteRules(event) {
 function getRouteRulesForPath(path) {
   return defu({}, ..._routeRulesMatcher.matchAll(path).reverse());
 }
+
+const nitroAsyncContext = getContext("nitro-app", {
+  asyncContext: true,
+  AsyncLocalStorage: AsyncLocalStorage 
+});
 
 const rootDir = "/Users/parth7span/projects/clone-website";
 
@@ -1342,7 +1352,7 @@ function normaliseDate(date) {
 const pages = [
   {
     "loc": "/playground",
-    "lastmod": "2024-06-05T06:57:00.812Z"
+    "lastmod": "2024-03-28T11:03:00.756Z"
   }
 ];
 
@@ -1924,6 +1934,13 @@ function createNitroApp() {
     }
   }
   h3App.use(config.app.baseURL, router.handler);
+  {
+    const _handler = h3App.handler;
+    h3App.handler = (event) => {
+      const ctx = { event };
+      return nitroAsyncContext.callAsync(ctx, () => _handler(event));
+    };
+  }
   const app = {
     hooks,
     h3App,
@@ -2120,6 +2137,9 @@ const appTeleportId = "teleports";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
+if (!("AsyncLocalStorage" in globalThis)) {
+  globalThis.AsyncLocalStorage = AsyncLocalStorage;
+}
 const getClientManifest = () => import('file:///Users/parth7span/projects/clone-website/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getServerEntry = () => import('file:///Users/parth7span/projects/clone-website/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));

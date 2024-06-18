@@ -195,7 +195,7 @@ declare global {
   const useServerHead: typeof import('../../node_modules/@unhead/vue')['useServerHead']
   const useServerHeadSafe: typeof import('../../node_modules/@unhead/vue')['useServerHeadSafe']
   const useServerSeoMeta: typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']
-  const useSettings: typeof import('../../composables/useSettings')['default']
+  const useSettings: typeof import('../../composables/useSettings')['useSettings']
   const useSiteConfig: typeof import('../../node_modules/nuxt-site-config/dist/runtime/composables/useSiteConfig')['useSiteConfig']
   const useSlider: typeof import('../../composables/useSlider')['useSlider']
   const useSlots: typeof import('../../node_modules/vue')['useSlots']
@@ -418,7 +418,7 @@ declare module 'vue' {
     readonly useServerHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerHead']>
     readonly useServerHeadSafe: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerHeadSafe']>
     readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']>
-    readonly useSettings: UnwrapRef<typeof import('../../composables/useSettings')['default']>
+    readonly useSettings: UnwrapRef<typeof import('../../composables/useSettings')['useSettings']>
     readonly useSiteConfig: UnwrapRef<typeof import('../../node_modules/nuxt-site-config/dist/runtime/composables/useSiteConfig')['useSiteConfig']>
     readonly useSlider: UnwrapRef<typeof import('../../composables/useSlider')['useSlider']>
     readonly useSlots: UnwrapRef<typeof import('../../node_modules/vue')['useSlots']>
@@ -634,7 +634,7 @@ declare module '@vue/runtime-core' {
     readonly useServerHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerHead']>
     readonly useServerHeadSafe: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerHeadSafe']>
     readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']>
-    readonly useSettings: UnwrapRef<typeof import('../../composables/useSettings')['default']>
+    readonly useSettings: UnwrapRef<typeof import('../../composables/useSettings')['useSettings']>
     readonly useSiteConfig: UnwrapRef<typeof import('../../node_modules/nuxt-site-config/dist/runtime/composables/useSiteConfig')['useSiteConfig']>
     readonly useSlider: UnwrapRef<typeof import('../../composables/useSlider')['useSlider']>
     readonly useSlots: UnwrapRef<typeof import('../../node_modules/vue')['useSlots']>
