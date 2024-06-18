@@ -85,7 +85,6 @@ const { data, error } = await useAsyncData("hydrate", () => {
 }).catch(err => {
   console.error(err);
 });
-console.log("===>dsds d sd s", data.value);
 
 /**
  * First, check for errors and throw if page not found.
