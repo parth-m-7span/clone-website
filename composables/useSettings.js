@@ -49,17 +49,17 @@ export const useSettings = async () => {
   /**
    * Set Schema
    */
-  // await useSchemaOrg([
-  //   defineOrganization({
-  //     name: company_legal_name,
-  //     logo,
-  //     sameAs: ["https://twitter.com/7SpanHQ"],
-  //     aggregateRating: {
-  //       ratingValue: ratings,
-  //       reviewCount: reviews_count,
-  //     },
-  //   }),
-  // ]);
+  useSchemaOrg([
+    defineOrganization({
+      name: company_legal_name,
+      logo,
+      sameAs: ["https://twitter.com/7SpanHQ"],
+      aggregateRating: {
+        ratingValue: ratings,
+        reviewCount: reviews_count,
+      },
+    }),
+  ]);
 
   return {
     colorVariables,
