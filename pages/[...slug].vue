@@ -93,6 +93,7 @@ if (error.value) {
   throw createError({
     statusCode: error.value.statusCode,
     statusMessage: error.value.message,
+    fatal: false,
   });
 } else if (data.value?.length === 0) {
   /**
@@ -102,7 +103,11 @@ if (error.value) {
    * we consider it as the page is not found.
    * Hence we create a manual 404 page error.
    */
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: false,
+  });
 }
 
 /**
@@ -128,7 +133,11 @@ for (let i = 0; i < dynamicSlugs.length; i++) {
  * If Page is in draft mode and environment is not production , prepare data.
  */
 if (!env.renderDraftPage && page.status === "draft") {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: false,
+  });
 } else if (page.redirect_to) {
   navigateTo(page.redirect_to.path, { redirectCode: 301 });
 }
