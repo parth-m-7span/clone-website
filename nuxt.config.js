@@ -237,4 +237,5 @@ export default defineNuxtConfig({
   experimental: {
     asyncContext: true,
   },
+  generate: { fallback: true },
 });
