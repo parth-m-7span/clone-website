@@ -225,7 +225,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    "/**": { isr: true },
+    "/**": { isr: true, headers: { "Content-Type": "application/html" } },
     "/abc": { isr: false },
   },
 
@@ -237,5 +237,4 @@ export default defineNuxtConfig({
   experimental: {
     asyncContext: true,
   },
-  generate: { fallback: true },
 });
