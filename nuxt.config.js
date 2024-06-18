@@ -1,5 +1,4 @@
 import config from "./app-config.json";
-
 export default defineNuxtConfig({
   vue: {
     compilerOptions: {
@@ -224,8 +223,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
   routeRules: {
-    "/**": { isr: true },
+    // "/**": { isr: true },
+    "/[slug]**": { isr: true },
     "/abc": { isr: false },
   },
 
